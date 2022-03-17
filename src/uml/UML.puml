@@ -1,0 +1,33 @@
+@startuml Pokemon
+
+interface IEvoluable
+interface IMegaEvoluable
+enum Type
+
+abstract class  "Pokemon"
+abstract class "PokemonObscurDecorator"
+class "Forizarre" 
+class "Bulbizarre" implements IEvoluable
+class "Herbizarre" implements IEvoluable
+class "FlorizarreObscur" 
+class "BulbizarreObscur" 
+class "HerbizarreObscur"
+class "MegaFlorizare"
+class "FlorizarreToMegaFlorizare" implements IMegaEvoluable
+class "ObscurDecorator"
+
+Pokemon <|-- Forizarre
+Pokemon <|-- Bulbizarre
+Pokemon <|-- Herbizarre
+Pokemon <|-- MegaFlorizare
+PokemonObscurDecorator <|-- ObscurDecorator
+
+Pokemon <|-- FlorizarreObscur
+Pokemon <|-- BulbizarreObscur
+Pokemon <|-- HerbizarreObscur
+
+
+FlorizarreToMegaFlorizare *-- MegaFlorizare
+Type *-- Pokemon
+
+@enduml[]
